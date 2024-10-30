@@ -1,0 +1,15 @@
+file = test.c
+# file = main.cpp
+display: 
+	@echo "hello world"
+all: display
+	@gcc $(file) -o cprogram 
+test: 
+	@python analysis.py 
+build:
+	gcc $(file) -o test.o
+clean:
+	@rm *.o
+	@echo "`date` done" > log.txt
+
+

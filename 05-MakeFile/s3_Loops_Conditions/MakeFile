@@ -1,0 +1,33 @@
+#using for like bash script
+LIST = one two three
+loop1:
+	@for i in $(LIST); do \
+		echo $$i; \
+	done
+
+# using foreach $(foreach  var,list,text)
+list = foo bar baz
+list_2 = $(foreach i,$(list),"\n Word is -$(i)")
+
+file = test.c 
+loop2:
+	@echo $(list_2)
+
+
+ifeq '$(file)'  'test.c '
+cond1:	 
+	@echo "true1"
+endif 
+
+
+cond2:
+ifeq '$(file)'  'test.c '
+		@echo "true2" 
+endif 
+
+bar=true
+foo = bar
+cond3: 
+ifdef $(foo)
+	@echo "true3" 
+endif
